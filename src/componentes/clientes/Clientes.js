@@ -20,14 +20,14 @@ function Clientes(props) {
     // use effect es similar a componentdidmount y willmount
     useEffect( () => {
 
-        if(auth.token !== '') {
+        if(localStorage.getItem('token')) {
             // Query a la API
             const consultarAPI = async () => {
                 try {
                     const clientesConsulta = await clienteAxios.get('/clientes', {
-                        headers: {
+                        /* headers: {
                             Authorization : `Bearer ${auth.token}`
-                        }
+                        } */
                     });
     
                     // colocar el resultado en el state
@@ -48,7 +48,7 @@ function Clientes(props) {
 
 
     // Si el state esta como false
-    if(!auth.auth) {
+    if(!localStorage.getItem('token')) {
         props.history.push('/iniciar-sesion');
     }
 

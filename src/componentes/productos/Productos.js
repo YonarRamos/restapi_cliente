@@ -12,14 +12,14 @@ function Productos(props) {
 
     // productos = state, guardarproductos = funcion para guardar el state
     const [productos, guardarProductos] = useState([]);
-
+     
     // utilizar valores del context
     const [auth, guardarAuth ] = useContext( CRMContext );
 
     // useEffect para consultar api cuando cargue
     useEffect( () => {
 
-        if(auth.token !== '') {
+        //if(auth.token !== '') {
             // Query a la API
             const consultarAPI = async () => {
                 try {
@@ -39,20 +39,20 @@ function Productos(props) {
             // llamado a la api
             consultarAPI();
 
-        } else {
+        /* } else {
             props.history.push('/iniciar-sesion');
-        }
+        } */
     }, [productos]);
 
     // Si el state esta como false
-    if(!auth.auth) {
+   if(!localStorage.getItem('token')) {
         props.history.push('/iniciar-sesion');
-    }
+    } 
 
 
     // spinner de carga
-    if(!productos.length) return <Spinner /> 
-
+    //if(!productos.length) return <Spinner />;
+     
 
     return (
         <Fragment>
@@ -64,12 +64,14 @@ function Productos(props) {
             </Link>
 
             <ul className="listado-productos">
-                {productos.map(producto => (
-                    <Producto 
-                        key={producto._id}
-                        producto={producto}
-                    />
-                ))}
+                {  !productos.length ? <Spinner /> :  productos.map(producto => (
+                        <Producto 
+                            key={producto._id}
+                            producto={producto}                          
+                        />
+                        )    
+                    )
+                }
             </ul>
         </Fragment>
     )

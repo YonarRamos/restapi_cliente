@@ -7,7 +7,7 @@ const Navegacion = () => {
 
     const [auth, guardarAuth] = useContext(CRMContext);
 
-    if(!auth.auth) return null;
+    if(!localStorage.getItem('token')) return null;
 
     return ( 
         <aside className="sidebar col-3">

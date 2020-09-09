@@ -27,7 +27,7 @@ const Header = (props) => {
                     <h1>CRM - Administrador de Clientes</h1>
 
 
-                    { auth.auth ? (
+                    { localStorage.getItem('token') ? (
                         <button 
                             type="button"
                             className="btn btn-rojo"

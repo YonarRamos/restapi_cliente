@@ -2,6 +2,7 @@ import React, {useState, useContext} from 'react';
 import Swal from 'sweetalert2';
 import { withRouter } from 'react-router-dom';
 import clienteAxios from '../../config/axios';
+import { Link } from 'react-router-dom';
 
 // Context
 import { CRMContext } from '../../context/CRMContext';
@@ -106,6 +107,7 @@ function Login(props){
                     </div>
 
                     <input type="submit" value="Iniciar Sesión" className="btn btn-verde btn-block" />
+                    <div  className="linkCrearUsuario" ><Link className="link" to={`/crear-usuario`}>Agrega un usuario para probar la App</Link></div>
                 </form>
             </div>
         </div>

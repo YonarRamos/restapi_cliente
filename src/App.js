@@ -20,6 +20,7 @@ import Pedidos from './componentes/pedidos/Pedidos';
 import NuevoPedido from './componentes/pedidos/NuevoPedido';
 
 import Login from './componentes/auth/Login';
+import CrearUsuario from './componentes/auth/CrearUsuario';
 
 import { CRMContext, CRMProvider } from './context/CRMContext';
 
@@ -53,6 +54,7 @@ function App() {
 
 
                             <Route exact path="/iniciar-sesion" component={Login} />
+                            <Route exact path="/crear-usuario" component={CrearUsuario} />
                         </Switch>
                   </main>
               </div>

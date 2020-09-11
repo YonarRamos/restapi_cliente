@@ -448,6 +448,11 @@ h3.resumen-titulo {
 .login h2 {
     text-align: center;
 }
-.login .contenedor-formulario {
 
+.linkCrearUsuario{
+    margin-top: 1em;  
+}
+
+.link{
+    color: var(--grisOscuro);
 }
